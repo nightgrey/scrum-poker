@@ -1,0 +1,6 @@
+.bg-wavy {
+  background-image: url("../images/bg-wavy.svg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+}
