@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Router from 'next/router'
+import Router from 'next/router';
+import withRedux from '../lib/withRedux';
 import Layout from '../components/layout';
+import withReactReduxFirebase from '../lib/withReactReduxFirebase';
 
-export default () => {
+const Index = () => {
   const [roomId, setRoomId] = useState();
 
   const handleChange = (event) => {
@@ -28,10 +30,12 @@ export default () => {
           <div className="max-w-2xl mx-auto text-left">
             Alternatively, you can
             {' '}
-            <a className="text-gray-600 font-bold">create a room.</a>
+            <span className="text-gray-600 font-bold">create a room.</span>
           </div>
         </div>
       </div>
     </Layout>
   );
 };
+
+export default withRedux(withReactReduxFirebase(Index));

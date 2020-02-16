@@ -4,7 +4,6 @@ module.exports = (phase) => {
   const configuration = {
     env: {
       title: 'Scrum Poker',
-
     },
   };
 
