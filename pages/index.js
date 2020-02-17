@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Router from 'next/router';
 import withRedux from '../lib/withRedux';
 import Layout from '../components/layout';
-import withReactReduxFirebase from '../lib/withReactReduxFirebase';
 
 const Index = () => {
   const [roomId, setRoomId] = useState();
@@ -30,7 +30,9 @@ const Index = () => {
           <div className="max-w-2xl mx-auto text-left">
             Alternatively, you can
             {' '}
-            <span className="text-gray-600 font-bold">create a room.</span>
+            <Link href="/room/create">
+              <a className="text-gray-700 font-bold">create a room.</a>
+            </Link>
           </div>
         </div>
       </div>
@@ -38,4 +40,4 @@ const Index = () => {
   );
 };
 
-export default withRedux(withReactReduxFirebase(Index));
+export default withRedux(Index);
