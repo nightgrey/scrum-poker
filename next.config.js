@@ -1,4 +1,5 @@
 const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
+const merge = require('lodash/merge');
 
 module.exports = (phase) => {
   const configuration = {
@@ -36,11 +37,11 @@ module.exports = (phase) => {
   };
 
   if (phase === PHASE_DEVELOPMENT_SERVER) {
-    return Object.assign(configuration, developmentConfiguration);
+    return merge(configuration, developmentConfiguration);
   }
 
   if (phase === PHASE_PRODUCTION_BUILD) {
-    return Object.assign(configuration, productionConfiguration);
+    return merge(configuration, productionConfiguration);
   }
 
   return configuration;
