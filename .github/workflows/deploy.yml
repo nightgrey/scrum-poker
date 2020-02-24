@@ -29,5 +29,5 @@ jobs:
         uses: amondnet/now-deployment@v1
         with:
           zeit-token: ${{ secrets.ZEIT_TOKEN }}
-          now-args: '--prod'
+          now-args: '--prod --confirm'
           github-comment: true
