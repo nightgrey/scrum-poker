@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Router from 'next/router'
+import Link from 'next/link';
+import Router from 'next/router';
+import withRedux from '../lib/withRedux';
 import Layout from '../components/layout';
 
-export default () => {
+const Index = () => {
   const [roomId, setRoomId] = useState();
 
   const handleChange = (event) => {
@@ -28,10 +30,14 @@ export default () => {
           <div className="max-w-2xl mx-auto text-left">
             Alternatively, you can
             {' '}
-            <a className="text-gray-600 font-bold">create a room.</a>
+            <Link href="/room/create">
+              <a className="text-gray-700 font-bold">create a room.</a>
+            </Link>
           </div>
         </div>
       </div>
     </Layout>
   );
 };
+
+export default withRedux(Index);

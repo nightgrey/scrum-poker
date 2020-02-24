@@ -1,0 +1,33 @@
+name: Deploy to now
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test with node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm test
+
+      - name: ZEIT Now Deployment
+        uses: amondnet/now-deployment@v1
+        with:
+          zeit-token: ${{ secrets.ZEIT_TOKEN }}
+          now-args: '--prod'
+          github-comment: true
