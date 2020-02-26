@@ -5,7 +5,7 @@ import '../styles/index.css';
 const App = ({ Component, pageProps }) => <Component {...pageProps} />;
 
 App.propTypes = {
-  Component: PropTypes.element,
+  Component: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   pageProps: PropTypes.object,
 };
 
