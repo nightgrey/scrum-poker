@@ -42,7 +42,7 @@ module.exports = withPlugins(
   [
     [optimizedImages, {
       // Let `svgr` handle <svg>'s.
-      handleImages: ['jpeg', 'png', 'webp', 'gif'],
+      handleImages: ['jpeg', 'png', 'webp'],
     }],
     [withSvgr, {}],
   ],

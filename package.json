@@ -13,7 +13,6 @@
     "classnames": "^2.2.6",
     "firebase": "^7.10.0",
     "image-trace-loader": "^1.0.2",
-    "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.1.0",
