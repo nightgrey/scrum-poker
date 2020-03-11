@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 const User = ({ userUid }) => {
-  const user = useSelector((state) => state.firebase.data.users && state.firebase.data.users[userUid]);
+  const user = useSelector((state) => state.firebase.data.users
+    && state.firebase.data.users[userUid]);
   const { displayName, email, avatarUrl } = user;
 
   return (
