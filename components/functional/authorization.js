@@ -1,6 +1,34 @@
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'react-redux-firebase';
+import { isEmpty, isLoaded } from 'react-redux-firebase';
+
+export const HasLoadedAuthorization = ({ children }) => {
+  const auth = useSelector((state) => state.firebase.auth);
+
+  if (isLoaded(auth)) {
+    return children;
+  }
+
+  return null;
+};
+
+HasLoadedAuthorization.propTypes = {
+  children: PropTypes.element,
+};
+
+export const IsLoadingAuthorization = ({ children }) => {
+  const auth = useSelector((state) => state.firebase.auth);
+
+  if (!isLoaded(auth)) {
+    return null;
+  }
+
+  return children;
+};
+
+IsLoadingAuthorization.propTypes = {
+  children: PropTypes.element,
+};
 
 export const IsNotAuthorized = ({ children }) => {
   const auth = useSelector((state) => state.firebase.auth);
